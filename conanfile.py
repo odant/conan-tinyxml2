@@ -22,7 +22,7 @@ class minizipConan(ConanFile):
     }
     default_options = "with_unit_tests=False"
     generators = "cmake"
-    exports_sources = "src/*", "CMakeLists.txt"
+    exports_sources = "src/*", "CMakeLists.txt", "Findtinyxml2.cmake"
     no_copy_source = True
     build_policy = "missing"
 
@@ -40,9 +40,10 @@ class minizipConan(ConanFile):
                 self.run("ctest --output-on-failure --build-config %s" % build_type)
             else:
                 self.run("ctest --output-on-failure")
+        cmake.install()
 
     def package(self):
-        #self.copy("Findminizip.cmake", dst=".", src=".")
+        self.copy("Findtinyxml2.cmake", dst=".", src=".")
         self.copy("tinyxml2.h", dst="include", src="src")
         self.copy("tinyxml2.lib", dst="lib", src="lib")
         self.copy("tinyxml2d.lib", dst="lib", src="lib")
