@@ -8,7 +8,6 @@
 #include <tinyxml2.h>
 
 #include <string>
-#include <fstream>
 #include <iostream>
 #include <cassert>
 
