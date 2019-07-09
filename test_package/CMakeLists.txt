@@ -44,3 +44,16 @@ add_test(
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/bin
     COMMAND test_parse
 )
+
+add_executable(test_create test_create.cpp)
+target_link_libraries(test_create tinyxml2::tinyxml2)
+set_target_properties(test_create
+    PROPERTIES
+    INSTALL_RPATH "$ORIGIN"
+    BUILD_WITH_INSTALL_RPATH True
+)
+add_test(
+    NAME test_create
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+    COMMAND test_create
+)
