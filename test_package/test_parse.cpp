@@ -1,6 +1,6 @@
 /*
  * Tests for tinyxml2 Conan package
- * Load XML from file
+ * Parse XML
  * Dmitriy Vetutnev, Odant 2019
 */
 
