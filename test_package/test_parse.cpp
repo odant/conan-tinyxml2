@@ -21,15 +21,11 @@ int main(int, char**) {
 "    <NodeB property=\"kIkos\"/>"
 "</Root>"
 ;
-    std::ofstream file{"test_load.xml", std::ios::binary};
-    file << content;
-    file.close();
-
     tinyxml2::XMLError err;
     tinyxml2::XMLDocument doc;
-    err = doc.LoadFile("test_load.xml");
+    err = doc.Parse(content.data(), content.length());
     if (err != tinyxml2::XML_SUCCESS) {
-        std::cout << "Failed load file. err: " << tinyxml2::XMLDocument::ErrorIDToName(err);
+        std::cout << "Failed parse content. err: " << tinyxml2::XMLDocument::ErrorIDToName(err);
     }
 
     const tinyxml2::XMLElement* root = doc.RootElement();

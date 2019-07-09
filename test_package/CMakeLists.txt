@@ -14,17 +14,17 @@ enable_testing()
 
 # CONAN_PKG::tinyxml2 imported target
 
-add_executable(test_load_CONAN_PKG test_load.cpp)
-target_link_libraries(test_load_CONAN_PKG CONAN_PKG::tinyxml2)
-set_target_properties(test_load_CONAN_PKG
+add_executable(test_parse_CONAN_PKG test_parse.cpp)
+target_link_libraries(test_parse_CONAN_PKG CONAN_PKG::tinyxml2)
+set_target_properties(test_parse_CONAN_PKG
     PROPERTIES
     INSTALL_RPATH "$ORIGIN"
     BUILD_WITH_INSTALL_RPATH True
 )
 add_test(
-    NAME test_load_CONAN_PKG
+    NAME test_parse_CONAN_PKG
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/bin
-    COMMAND test_load_CONAN_PKG
+    COMMAND test_parse_CONAN_PKG
 )
 
 
@@ -32,15 +32,15 @@ add_test(
 
 find_package(tinyxml2 REQUIRED)
 
-add_executable(test_load test_load.cpp)
-target_link_libraries(test_load tinyxml2::tinyxml2)
-set_target_properties(test_load
+add_executable(test_parse test_parse.cpp)
+target_link_libraries(test_parse tinyxml2::tinyxml2)
+set_target_properties(test_parse
     PROPERTIES
     INSTALL_RPATH "$ORIGIN"
     BUILD_WITH_INSTALL_RPATH True
 )
 add_test(
-    NAME test_load
+    NAME test_pasre
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/bin
-    COMMAND test_load
+    COMMAND test_parse
 )
