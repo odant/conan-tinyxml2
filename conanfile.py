@@ -46,8 +46,8 @@ class minizipConan(ConanFile):
         self.copy("tinyxml2.h", dst="include", src="src")
         self.copy("tinyxml2.lib", dst="lib", src="lib")
         self.copy("tinyxml2d.lib", dst="lib", src="lib")
-        self.copy("tinyxml2.a", dst="lib", src="lib")
-        self.copy("tinyxml2d.a", dst="lib", src="lib")
+        self.copy("libtinyxml2.a", dst="lib", src="lib")
+        self.copy("libtinyxml2d.a", dst="lib", src="lib")
         self.copy("*tinyxml2.pdb", dst="bin", src="src", keep_path=False)
         self.copy("*tinyxml2d.pdb", dst="bin", src="src", keep_path=False)
 
