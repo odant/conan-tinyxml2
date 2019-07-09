@@ -40,7 +40,6 @@ class minizipConan(ConanFile):
                 self.run("ctest --output-on-failure --build-config %s" % build_type)
             else:
                 self.run("ctest --output-on-failure")
-        cmake.install()
 
     def package(self):
         self.copy("Findtinyxml2.cmake", dst=".", src=".")
