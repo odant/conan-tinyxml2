@@ -7,7 +7,7 @@ from conans import ConanFile, CMake
 
 class minizipConan(ConanFile):
     name = "tinyxml2"
-    version = "7.0.1"
+    version = "7.1.0"
     license = "ZLIB http://www.zlib.net/zlib_license.html"
     description = "TinyXML-2 is a simple, small, efficient, C++ XML parser that can be easily integrated into other programs."
     url = "https://github.com/odant/conan-tinyxml2"
