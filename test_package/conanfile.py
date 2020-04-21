@@ -9,11 +9,16 @@ class PackageTestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake"
 
+    def build_requiments(self):
+        if self.options["tinyxml2"].ninja:
+            self.build_requires("ninja_installer/1.9.0@bincrafters/stable")
+
     def imports(self):
         self.copy("*.pdb", dst="bin", src="bin")
 
     def build(self):
-        cmake = CMake(self, msbuild_verbosity='normal')
+        gen = "Ninja" if self.options["tinyxml2"].ninja else None
+        cmake = CMake(self, generator=gen, msbuild_verbosity='normal')
         cmake.verbose = True
         cmake.configure()
         cmake.build()
