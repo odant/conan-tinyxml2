@@ -32,7 +32,7 @@ class minizipConan(ConanFile):
 
     def build_requiments(self):
         if self.options.ninja:
-            self.build_requires("ninja_installer/1.9.0@bincrafters/stable")
+            self.build_requires("ninja/1.9.0")
 
     def build(self):
         build_type = "RelWithDebInfo" if self.settings.build_type == "Release" else "Debug"
